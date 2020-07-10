@@ -19,6 +19,6 @@ RUN apk --no-cache add ca-certificates
 RUN mkdir /app
 WORKDIR /app
 
-COPY --from=builder /root/build/agent-api ./
+COPY --from=builder /app/build/agent-api ./
 
 ENTRYPOINT ["/app/agent-api"]

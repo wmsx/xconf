@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/mwmsx/xconf/admin-api/config"
+	"github.com/wmsx/xconf/admin-api/config"
 )
 
 func Release(c *gin.Context) {

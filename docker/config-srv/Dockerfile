@@ -22,4 +22,4 @@ WORKDIR /app
 
 COPY --from=builder /app/build/config-srv ./
 
-ENTRYPOINT ["/a[[/config-srv"]
+ENTRYPOINT ["/app/config-srv"]

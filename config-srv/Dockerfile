@@ -6,8 +6,9 @@ WORKDIR /app
 ENV GO111MODULE=on
 ENV GOPROXY="https://goproxy.io"
 
-COPY .  .
-RUN CGO_ENABLED=0 GOOS=linux go build -o build/micro micro/main.go
+COPY ../deployments/docker/config-srv  .
+RUN export GO111MODULE=on && CGO_ENABLED=0 GOOS=linux go build -o build/config-srv config-srv/main.go
+
 
 FROM alpine:latest
 
@@ -17,7 +18,6 @@ RUN apk --no-cache add ca-certificates
 RUN mkdir /app
 WORKDIR /app
 
-COPY --from=builder /app/build/micro ./
+COPY --from=builder /app/build/config-srv ./
 
-EXPOSE 8090
-ENTRYPOINT ["/app/micro", "api", "--handler=http"]
+ENTRYPOINT ["/a[[/config-srv"]

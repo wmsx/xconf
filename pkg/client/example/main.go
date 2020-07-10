@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/micro-in-cn/XConf/pkg/client/source"
 	"github.com/micro/go-micro/v2/config"
 	"github.com/micro/go-micro/v2/util/log"
+	"github.com/wmsx/xconf/pkg/client/source"
 )
 
 func main() {

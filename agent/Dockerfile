@@ -6,7 +6,7 @@ WORKDIR /app
 ENV GO111MODULE=on
 ENV GOPROXY="https://goproxy.io"
 
-COPY .  .
+COPY ../deployments/docker/agent  .
 RUN export GO111MODULE=on && CGO_ENABLED=0 GOOS=linux go build -o build/agent agent/main.go
 
 

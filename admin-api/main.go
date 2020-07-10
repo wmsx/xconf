@@ -36,7 +36,7 @@ func main() {
 func Router() *gin.Engine {
 	router := gin.Default()
 	router.Static("/xconf/admin/ui", "./dist")
-	r := router.Group("/xconf/api/v1")
+	r := router.Group("/xconf/admin/api/v1")
 	r.GET("/apps", handler.ListApps)
 	r.GET("/app", handler.QueryApp)
 	r.POST("/app", handler.CreateApp)

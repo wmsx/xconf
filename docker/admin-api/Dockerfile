@@ -16,7 +16,7 @@ FROM node:12-alpine as node-builder
 RUN mkdir /app
 WORKDIR /app
 
-COPY . .
+COPY ./dashboard .
 RUN npm rebuild node-sass && npm install && npm run build
 
 FROM alpine:latest

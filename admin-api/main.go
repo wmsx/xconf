@@ -10,7 +10,7 @@ import (
 	pconfig "github.com/wmsx/xconf/proto/config"
 )
 
-const name  = "wm.sx.web.admin"
+const name  = "wm.sx.web.xconf"
 
 func main() {
 	service := web.NewService(
@@ -35,7 +35,7 @@ func main() {
 
 func Router() *gin.Engine {
 	router := gin.Default()
-	router.Static("/admin/ui", "./dist")
+	router.Static("/xconf/admin/ui", "./dist")
 	r := router.Group("/xconf/api/v1")
 	r.GET("/apps", handler.ListApps)
 	r.GET("/app", handler.QueryApp)

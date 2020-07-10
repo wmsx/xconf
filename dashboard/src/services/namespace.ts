@@ -8,7 +8,7 @@ import {
   NamespacesQuery,
 } from '@src/typings';
 
-const _ = new IFetch('/xconf/api/v1');
+const _ = new IFetch('/xconf/xconf/api/v1');
 
 export const fetchNamespaces = (query: NamespacesQuery): Promise<Namespace[]> => {
   return _.get('/namespaces', query);

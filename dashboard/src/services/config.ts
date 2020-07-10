@@ -1,6 +1,6 @@
 import IFetch from '@src/utils/request';
 
-const _ = new IFetch('/xconf/api/v1');
+const _ = new IFetch('/xconf/admin/api/v1');
 
 export const fetchConfigs = () => {
   return _.get('/configs');

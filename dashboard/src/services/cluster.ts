@@ -1,7 +1,7 @@
 import IFetch from '@src/utils/request';
 import { AppQuery, Cluster, ClusterCreation, ClusterQuery } from '@src/typings';
 
-const _ = new IFetch('/xconf/api/v1');
+const _ = new IFetch('/xconf/admin/api/v1');
 
 export const fetchClusters = (query: AppQuery): Promise<Cluster[]> => {
   return _.get('/clusters', query);

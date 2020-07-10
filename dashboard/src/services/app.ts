@@ -1,7 +1,7 @@
 import IFetch from '@src/utils/request';
 import { App, AppCreation, AppQuery } from '@src/typings';
 
-const _ = new IFetch('/xconf/api/v1');
+const _ = new IFetch('/xconf/admin/api/v1');
 
 export const fetchApps = (): Promise<App[]> => {
   return _.get('/apps');

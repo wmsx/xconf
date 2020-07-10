@@ -6,8 +6,10 @@ WORKDIR /app
 ENV GO111MODULE=on
 ENV GOPROXY="https://goproxy.io"
 
-COPY ../deployments/docker/config-srv  .
-RUN export GO111MODULE=on && CGO_ENABLED=0 GOOS=linux go build -o build/config-srv config-srv/main.go
+COPY .  .
+
+RUN go mod download
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o build/config-srv config-srv/main.go
 
 
 FROM alpine:latest

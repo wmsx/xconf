@@ -6,18 +6,17 @@ WORKDIR /app
 ENV GO111MODULE=on
 ENV GOPROXY="https://goproxy.io"
 
-COPY ../deployments/docker/admin-api  .
+COPY .  .
 
-RUN export GO111MODULE=on && CGO_ENABLED=0 GOOS=linux go build -o build/admin-api admin-api/main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o build/admin-api admin-api/main.go
 
 
 FROM node:12-alpine as node-builder
 
-
 RUN mkdir /app
 WORKDIR /app
 
-COPY dashboard .
+COPY . .
 RUN npm rebuild node-sass && npm install && npm run build
 
 FROM alpine:latest

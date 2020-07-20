@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/micro/go-micro/config/source"
-	"github.com/micro/go-micro/util/log"
+	"github.com/micro/go-micro/v2/config/source"
+	"github.com/micro/go-micro/v2/util/log"
 )
 
 type xConf struct {

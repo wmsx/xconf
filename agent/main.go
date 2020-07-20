@@ -7,8 +7,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/micro/cli"
-	"github.com/micro/go-micro/util/log"
+	"github.com/micro/cli/v2"
+	"github.com/micro/go-micro/v2/util/log"
 	"github.com/wmsx/xconf/agent/server"
 )
 
@@ -27,38 +27,38 @@ func main() {
 	app.Version = "0.0.1"
 
 	app.Flags = []cli.Flag{
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:        "url, u",
 			Value:       "127.0.0.1:8080",
 			Usage:       "base url",
-			EnvVar:      "XCONF_BASE_URL",
+			EnvVars:      []string{"XCONF_BASE_URL"},
 			Destination: &baseURL,
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:        "app, a",
 			Value:       "",
 			Usage:       "app name",
-			EnvVar:      "XCONF_APP_NAME",
+			EnvVars:      []string{"XCONF_APP_NAME"},
 			Destination: &appName,
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:        "cluster, c",
 			Value:       "",
 			Usage:       "cluster name",
-			EnvVar:      "XCONF_CLUSTER_NAME",
+			EnvVars:     []string{"XCONF_CLUSTER_NAME"},
 			Destination: &clusterName,
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:        "dir, d",
 			Value:       "/tmp",
 			Usage:       "directory",
-			EnvVar:      "XCONF_DIR",
+			EnvVars:     []string{"XCONF_DIR"},
 			Destination: &dir,
 		},
-		cli.IntFlag{
+		&cli.IntFlag{
 			Name:        "interval, i",
 			Usage:       "auto reload time interval",
-			EnvVar:      "XCONF_INTERVAL",
+			EnvVars:     []string{"XCONF_INTERVAL"},
 			Value:       5,
 			Destination: &interval,
 		},

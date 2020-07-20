@@ -7,7 +7,7 @@ import (
 
 	"github.com/Allenxuxu/toolkit/convert"
 	"github.com/coocood/freecache"
-	"github.com/micro/go-micro/util/log"
+	"github.com/micro/go-micro/v2/util/log"
 	"github.com/wmsx/xconf/proto/config"
 )
 

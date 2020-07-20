@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/micro/go-micro/util/log"
+	"github.com/micro/go-micro/v2/util/log"
 	"github.com/wmsx/xconf/agent/file"
 	"github.com/wmsx/xconf/agent/source"
 )

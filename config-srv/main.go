@@ -4,10 +4,10 @@ import (
 	"errors"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/micro/cli"
-	"github.com/micro/go-micro"
-	"github.com/micro/go-micro/transport/grpc"
-	"github.com/micro/go-micro/util/log"
+	"github.com/micro/cli/v2"
+	"github.com/micro/go-micro/v2"
+	"github.com/micro/go-micro/v2/transport/grpc"
+	"github.com/micro/go-micro/v2/util/log"
 	"github.com/wmsx/xconf/config-srv/broadcast"
 	"github.com/wmsx/xconf/config-srv/broadcast/broker"
 	"github.com/wmsx/xconf/config-srv/broadcast/database"
@@ -28,31 +28,32 @@ func main() {
 		micro.Name(name),
 		micro.Transport(grpc.NewTransport()),
 		micro.Flags(
-			cli.StringFlag{
+			&cli.StringFlag{
 				Name:   "database_driver",
 				Usage:  "database driver",
-				EnvVar: "DATABASE_DRIVER",
+				EnvVars: []string{"DATABASE_DRIVER"},
 				Value:  "mysql",
 			},
-			cli.StringFlag{
+			&cli.StringFlag{
 				Name:   "database_url",
 				Usage:  "database url",
-				EnvVar: "DATABASE_URL",
+				EnvVars: []string{"DATABASE_URL"},
 				Value:  "root:12345@(127.0.0.1:3306)/xconf?charset=utf8&parseTime=true&loc=Local",
 			},
-			cli.StringFlag{
+			&cli.StringFlag{
 				Name:   "broadcast",
 				Usage:  "broadcast (db/broker)",
-				EnvVar: "BROADCAST",
+				EnvVars: []string{"BROADCAST"},
 				Value:  "db",
 			}),
 	)
 	service.Init(
-		micro.Action(func(c *cli.Context) {
+		micro.Action(func(c *cli.Context) error {
 			config.DB.DriverName = c.String("database_driver")
 			config.DB.URL = c.String("database_url")
 			config.BroadcastType = c.String("broadcast")
 			log.Infof("database_driver: %s , database_url: %s\n", config.DB.DriverName, config.DB.URL)
+			return nil
 		}),
 		micro.BeforeStart(func() (err error) {
 			if err = dao.Init(&config); err != nil {

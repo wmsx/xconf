@@ -2,10 +2,10 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/micro/cli"
-	"github.com/micro/go-micro"
-	"github.com/micro/go-micro/transport/grpc"
-	"github.com/micro/go-micro/web"
+	"github.com/micro/cli/v2"
+	"github.com/micro/go-micro/v2"
+	"github.com/micro/go-micro/v2/transport/grpc"
+	"github.com/micro/go-micro/v2/web"
 	"github.com/wmsx/xconf/agent-api/config"
 	"github.com/wmsx/xconf/agent-api/handler"
 	pconfig "github.com/wmsx/xconf/proto/config"
@@ -17,10 +17,10 @@ func main() {
 	service := web.NewService(
 		web.Name("wm.sx.web.agent"),
 		web.Flags(
-			cli.IntFlag{
+			&cli.IntFlag{
 				Name:        "cache_size",
 				Usage:       "cache size (k)",
-				EnvVar:      "XCONF_CACHE_SIZE",
+				EnvVars:     []string{"XCONF_CACHE_SIZE"},
 				Value:       1024 * 1024,
 				Destination: nil,
 			},

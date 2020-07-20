@@ -2,9 +2,9 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/micro/go-micro"
-	"github.com/micro/go-micro/transport/grpc"
-	"github.com/micro/go-micro/web"
+	"github.com/micro/go-micro/v2"
+	"github.com/micro/go-micro/v2/transport/grpc"
+	"github.com/micro/go-micro/v2/web"
 	"github.com/wmsx/xconf/admin-api/config"
 	"github.com/wmsx/xconf/admin-api/handler"
 	pconfig "github.com/wmsx/xconf/proto/config"

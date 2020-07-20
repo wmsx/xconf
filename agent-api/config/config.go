@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/micro/go-micro/util/log"
+	"github.com/micro/go-micro/v2/util/log"
 	"github.com/wmsx/xconf/agent-api/config/cache"
 	"github.com/wmsx/xconf/proto/config"
 )

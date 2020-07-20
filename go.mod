@@ -15,7 +15,6 @@ require (
 	github.com/jinzhu/gorm v1.9.12
 	github.com/micro/cli v0.2.0
 	github.com/micro/go-micro v1.18.0
-	github.com/micro/go-micro/v2 v2.4.0
 	github.com/micro/go-plugins v1.5.1
 	github.com/micro/micro v1.18.0
 	gopkg.in/go-playground/validator.v9 v9.31.0 // indirect

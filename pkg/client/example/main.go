@@ -1,16 +1,15 @@
 package main
 
 import (
-	"github.com/micro/go-micro/config"
-	"github.com/micro/go-micro/util/log"
+	"github.com/micro/go-micro/v2/config"
+	"github.com/micro/go-micro/v2/util/log"
 	"github.com/wmsx/xconf/pkg/client/source"
 )
 
 func main() {
-	c := config.NewConfig(
+	c, err := config.NewConfig(
 		config.WithSource(
 			source.NewSource("app", "dev", "test", source.WithURL("http://192.168.0.199:8090"))))
-			//source.NewSource("app", "dev", "test", source.WithURL("http://192.168.0.199:8090"))))
 			//source.NewSource("app", "dev", "test", source.WithURL("http://xconf.mogutou.xyz"))))
 	log.Info("read: ", string(c.Get().Bytes()))
 

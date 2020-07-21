@@ -13,6 +13,7 @@ require (
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/golang/protobuf v1.4.1
 	github.com/jinzhu/gorm v1.9.12
+	github.com/leodido/go-urn v1.2.0 // indirect
 	github.com/micro/cli/v2 v2.1.2
 	github.com/micro/go-micro/v2 v2.5.0
 	google.golang.org/protobuf v1.25.0

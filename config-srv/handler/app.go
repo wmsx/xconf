@@ -3,7 +3,7 @@ package handler
 import (
 	"context"
 
-	"github.com/micro/go-micro/util/log"
+	"github.com/micro/go-micro/v2/util/log"
 	"github.com/wmsx/xconf/config-srv/dao"
 	"github.com/wmsx/xconf/proto/config"
 )
